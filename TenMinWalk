@@ -1,0 +1,38 @@
+public class Main {
+   
+    public static boolean isValid(char[] walk) {
+        int north=0;
+        int south=0;
+        int east=0;
+        int west=0;
+        int route=0;
+        for(int i=0;i< walk.length;i++){
+            if (walk[i]=='n'&& south==0){
+                north++;
+            }
+            else if(walk[i]=='n'&& south>0){
+                south=south-1;
+            } else if (walk[i]=='s'&& north==0) {
+                south++;
+            } else if (walk[i]=='s'&& north>0) {
+                north=north-1;
+            } else if (walk[i]=='e'&& west==0) {
+                east++;
+            } else if (walk[i]=='e'&& west>0) {
+                west=west-1;
+            } else if (walk[i]=='w'&& east==0) {
+                west++;
+            } else if (walk[i]=='w'&& east>0) {
+                east=east-1;
+            }
+            route=route+1;
+        }
+        if(north==0 && south==0 && east==0 && west==0 && route==10){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+}
